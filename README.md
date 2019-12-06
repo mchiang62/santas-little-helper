@@ -32,4 +32,5 @@ The most important aspect is the multiple tables being edited and created by mul
 Comment Box
 Budgeting for Secret Santa lists
 Advanced Search (by category, popular items)
+Friendslist
 
