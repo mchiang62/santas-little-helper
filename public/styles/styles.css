@@ -6,3 +6,16 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+
+#jumboHome {
+  background-image: url("../images/candycane.jpg");
+  background-size: cover;
+  height: 75vh;
+
+}
+
+
+.btn-dark, .btn-dark:hover, .btn-dark:active, .btn-dark:visited {
+  background-color: rgb(27, 82, 27) !important;
+}
