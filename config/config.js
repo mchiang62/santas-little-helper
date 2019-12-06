@@ -1,14 +1,3 @@
-// {
-//   "development": {
-//     "username": "root",
-//     "password": "password",
-//     "database": "wishlistdev_db",
-//     "host": "localhost",
-//     "port": 3306,
-//     "dialect": "mysql"
-//   }
-// }
-
 
 require('dotenv').config(); // this is important!
 
