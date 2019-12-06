@@ -9,6 +9,7 @@
 
 
     <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -27,20 +28,129 @@
 
 <body>
 
-    <div class="jumbotron">
-        <h1 class="display-4">Home Page</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-            featured content or information.</p>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/public/home.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li>
+                    <a class="btn-floating grey darken-3" href="https://github.com/mchiang62" target="_blank"> <i
+                            class="fa fa-github"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/logout">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </nav> -->
+
+
+
+    <div class="jumbotron text-center" id="jumboHome">
+    
+        <h1 class="display-4">Santa's Little Helper</h1>
+        <p class="lead">Santa's Little Helper is an app to help you organize your family, friends, and co-worker's
+            Christmas wish lists.</p>
         <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p>To get started, login or create a new account</p>
         <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            <a class="btn btn-dark" data-toggle="collapse" href="#loginForm" role="button" aria-expanded="false"
+                aria-controls="loginForm" id="login">
+                Login
+            </a>
+
+            <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#createForm"
+                aria-expanded="false" aria-controls="createForm" id="createAcc">
+                Create Account
+            </button>
+
         </p>
+
+
+
     </div>
+
+    <div class="collapse" id="loginForm">
+        <div class="card card-body">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <h2>Login Form</h2>
+                        <form class="login">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="email-input" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="password-input" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-default">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="collapse" id="createForm">
+        <div class="card card-body">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <h2>Sign Up Form</h2>
+                        <form class="signup">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="email-input" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="password-input" placeholder="Password">
+                            </div>
+                            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                <span class="sr-only">Error:</span> <span class="msg"></span>
+                            </div>
+                            <button type="submit" class="btn btn-default">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
 
 
     <script type="text/javascript" src="js/home.js"></script>
 
 
 </body>
+
 </html>
