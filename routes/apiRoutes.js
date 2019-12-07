@@ -15,13 +15,15 @@ module.exports = function (app) {
   app.post("/api/signup", function (req, res) {
     db.User.create({
       email: req.body.email,
-      password: req.body.password
-    }).then(function () {
+      password: req.body.password,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName
+    }).then(function(){
       res.redirect(307, "/api/login");
-    }).catch(function (err) {
-      res.status(401).json(err);
-    });
-  });
+    });//.catch(function(err){
+      //res.status(401).json(err);
+   // });
+});
 
   // Route for logging user out
   app.get("/logout", function (req, res) {
@@ -30,8 +32,8 @@ module.exports = function (app) {
   });
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function (req, res) {
-    if (!req.user) {
+  app.get("/api/user_data", function(req, res) {
+    if(!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
@@ -44,12 +46,6 @@ module.exports = function (app) {
     }
   });
 
-  // Get all examples
-  // app.get("/api/examples", function(req, res) {
-  //   db.Example.findAll({}).then(function(dbExamples) {
-  //     res.json(dbExamples);
-  //   });
-  // });
 
   //Get all Wishlists
   app.get("/api/wishlists", function (req, res) {
@@ -58,26 +54,22 @@ module.exports = function (app) {
     });
   });
 
-  //Get all Users
-  app.get("/api/users", function (req, res) {
-    db.Users.findAll({}).then(function (dbUsers) {
-      res.json(dbUsers);
-    });
-  });
+ 
 
   //Create a new Wishlist
-  app.post("/api/newwishlist", function (req, res) {
-    Wishlist.create({
+  app.post("/api/newwishlist", function(req, res) {
+    db.Wishlist.create({
       itemA: req.body.itemA,
       itemB: req.body.itemB,
       itemC: req.body.itemC,
-      itemD: req.body.itemC,
       itemD: req.body.itemD,
       itemE: req.body.itemE
-    }).then(function (results) {
+    }).then(function(results) {
       res.end();
     });
   });
+
+
 
   //Update a wishlist
   app.put("/api/wishlists", function (req, res) {
@@ -85,7 +77,6 @@ module.exports = function (app) {
       itemA: req.body.itemA,
       itemB: req.body.itemB,
       itemC: req.body.itemC,
-      itemD: req.body.itemC,
       itemD: req.body.itemD,
       itemE: req.body.itemE
     }, {
@@ -99,13 +90,15 @@ module.exports = function (app) {
 
   //Delete a wishlist
 
-  app.delete("/api/wishlists/:id", function (req, res) {
-    db.Wishlist.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbWishlist) {
-      res.json(dbWishlist)
-    });
+app.delete("/api/wishlists/:id", function(req, res) {
+  db.Wishlist.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(dbWishlist) {
+    res.json(dbWishlist)
   });
+});
 };
+
+ 
