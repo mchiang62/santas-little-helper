@@ -32,7 +32,7 @@ passport.use(new LocalStrategy(
             return done (null, dbUser);
         });
     }
-});
+));
 
 // In order to help keep authentication state across HTTP request,
 // Sequelize needs to serialize and deserialize the user

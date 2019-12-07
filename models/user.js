@@ -38,4 +38,4 @@ module.exports = function(sequelize, DataTypes) {
         user.password = bcrypt.hash.Sync(user.password, bcrypt.genSaltSync(10), null);
     });
     return User;
-});
+};
