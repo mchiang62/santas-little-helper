@@ -24,7 +24,7 @@ app.use(passport.session());
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-console.log(process.env.DB_HOST)
+console.log(process.env.DB_HOST);
 
 var syncOptions = { force: false };
 
