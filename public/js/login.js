@@ -26,8 +26,10 @@ $(document).ready(function(){
             email: email,
             password: password
         }).then(function(){
+          
             console.log("!!!!!");
-           // window.location.replace("/members");
+           // window.location.replace("/members"
+            window.location.replace("/search");
             // if there's an error, log the error
         }).catch(function(err){
             console.log(err);
