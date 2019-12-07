@@ -6,30 +6,33 @@ module.exports = function(sequelize, DataTypes) {
         itemA: {
             //Items will consist 
             type: DataTypes.STRING,
-            allowNull : false,
-            unique: true
+            allowNull : false
         }, 
         itemB: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: false
         },
         itemC: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: false
         },
         itemD: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: false
         },
         itemE: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: false
         }
     });
+    Wishlist.associate = function(models) {
+        Wishlist.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+
     return Wishlist;
 };
 
