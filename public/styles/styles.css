@@ -13,11 +13,18 @@ form.login {
   height: 75vh;
 }
 
+#jumboSearch {
+  background-image: url("../images/boxes.jpg");
+  background-size: cover;
+  height: 75vh;
+}
+
 #jumboList {
   background-image: url("../images/goldpresent.jpg");
   background-size: cover;
   height: 75vh;
 }
+
 .btn-dark, .btn-dark:hover, .btn-dark:active, .btn-dark:visited {
   background-color: rgb(27, 82, 27) !important;
 }
