@@ -100,5 +100,3 @@ app.delete("/api/wishlists/:id", function(req, res) {
   });
 });
 };
-
- 
