@@ -1,1 +1,1 @@
-INSERT INTO users (item_name, price, item_id) VALUES ('shoes', 100, 1);
+insert into users (email, password, firstName, lastName) values ("abc@gmail.com", "5678", "test", "test");

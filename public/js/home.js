@@ -99,16 +99,6 @@ $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 
-
-
-// $('#loginForm').collapse({
-//   toggle: false
-// });
-
-// $('#createForm').collapse({
-//   toggle: false
-// });
-
 $("#login").click(function(){
   $("#loginForm").collapse('show');
   $("#createForm").collapse('hide');

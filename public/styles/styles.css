@@ -1,3 +1,4 @@
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -10,7 +11,7 @@ form.login {
 #jumboHome {
   background-image: url("../images/candycane.jpg");
   background-size: cover;
-  height: 75vh;
+  height: 100vh;
 }
 
 #jumboSearch {
@@ -25,10 +26,53 @@ form.login {
   height: 75vh;
 }
 
+#jumboView{
+  background-image: url("../images/stars.jpg");
+  background-size: cover;
+  height: 75vh;
+}
+
+/* home page buttons */
 .btn-dark, .btn-dark:hover, .btn-dark:active, .btn-dark:visited {
   background-color: rgb(27, 82, 27) !important;
 }
 
+/* create list page button */
+.btn-secondary{
+background-color:rgb(63, 56, 17)!important;
+}
+
 .jumboHomeText{
-  margin-bottom: -10vh;
+  margin-top: 60px;
+  font-family: 'Candal', sans-serif;
+  color: white;
+  
+}
+.jumboSearchText{
+  font-family: 'Candal', sans-serif;
+  color:rgb(63, 56, 17);
+}
+.jumboViewText{
+  font-family: 'Candal', sans-serif;
+  color: rgb(114, 102, 32);
+  margin-top: 60px;
+}
+.login-form-style{
+  font-family: 'Candal', sans-serif;
+  font-size: large;
+}
+
+.navbar{
+background-color: rgb(238, 231, 231);
+font-family: 'Candal', sans-serif;
+}
+
+.icon{
+    font-size: 30px;
+    height: 30px;
+    float: right;
+    /* text-align: right;
+    vertical-align: right;
+    justify-content: right; */
+
 }

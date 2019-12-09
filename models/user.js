@@ -1,5 +1,7 @@
 // Requiring bcrypt for password hashing. Usin the bcryptjs version as the regular dcrypt module sometimes causes errors on Windows machines
 var bcrypt = require("bcryptjs");
+var Sequelize = require("sequelize");
+
 
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
@@ -25,7 +27,9 @@ module.exports = function(sequelize, DataTypes) {
         lastName: {
             type: DataTypes.STRING,
             allowNull: false
-        }    
+        }
+    },{
+        timestamps:false
     });
 
     // Creating a custom method for our User Model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
