@@ -11,28 +11,43 @@ $(document).ready(function(){
             email: emailInput.val().trim(),
             password: passwordInput.val().trim()
         };
+
         if (!userData.email || !userData.password) {
             return;
         }
         // If we have an email and passworde run the loginUser function and clear the form
-        loginUser(userData.email, userData.password);
         emailInput.val("");
         passwordInput.val("");
-    });
 
-    // loginUser does a post to our "api/login" route and if succesful, redirects us to the members page
-    function loginUser(email, password){
-        $.post("/api/login", {
-            email: email,
-            password: password
-        }).then(function(){
-          
-            console.log("!!!!!");
-           // window.location.replace("/members"
-            window.location.replace("/search");
+          var dataJSON = JSON.stringify(userData);
+            console.log(dataJSON, 'dataJson')
+   
+
+    // loginUser does a post to our "api/login" route and if succesful, redirects us to the members page submitList(userList);
+
+        function submitList(Post) {
+            $.post("/api/newwishlist/", Post, function() {
+              window.location.href = "/search";
+            });
+          }
+        $.ajax({
+            method:"POST",
+            url:"api/login",
+            data: dataJSON,
+            dataType:"json",
+            contentType:"application/json"
+        })
+        // $.post("/api/login", function() {
+        //     email: email,
+        //     password: password
+    
+        .then(function(){
+            console.log("!!!!!", userData);
+            window.location.href = "/list";})
             // if there's an error, log the error
-        }).catch(function(err){
-            console.log(err);
-        });
-    }
+        // }).catch(function(err){
+        //     console.log(err);
+        // });
+    // }
+});
 });
