@@ -112,6 +112,23 @@ module.exports = function (app) {
     });
   });
 
+   //Update a wishlist item
+
+   app.put("/api/wishlistitems", function (req, res) {
+    db.Items.update({
+      item: req.body.item,
+      price: req.body.price,
+      url: req.body.url
+    }, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function (dbItems) {
+      res.json(dbItems);
+    });
+  });
+
+
   //Delete a wishlist
 
 app.delete("/api/wishlists/:id", function(req, res) {
