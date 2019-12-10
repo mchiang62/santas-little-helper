@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         price: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     });
