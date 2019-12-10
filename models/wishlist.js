@@ -1,30 +1,24 @@
 //Creating our model for the wishlist
+var Sequelize = require("sequelize");
 
 module.exports = function (sequelize, DataTypes) {
-    //Wishlist will consist of Five items that must be a string
+    //Wishlist will consist of Items
     var Wishlist = sequelize.define("Wishlist", {
-        itemA: {
-            //Items will consist 
+        //Wishlist will be a foreignKey to Items, and Users will be a foreignKey to Wishlist
+        name: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        itemB: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        itemC: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        itemD: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        itemE: {
-            type: DataTypes.STRING,
+        }, 
+        budget: {
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     });
+    Wishlist.associate = function(models) {
+        Wishlist.hasMany(models.Items, {
+            onDelete: "cascade"
+        });
+    };
     Wishlist.associate = function (models) {
         Wishlist.belongsTo(models.User, {
             foreignKey: {
@@ -32,6 +26,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         });
     };
+   
 
     return Wishlist;
 };
