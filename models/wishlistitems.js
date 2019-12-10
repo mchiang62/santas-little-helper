@@ -10,6 +10,10 @@ module.exports = function (sequelize, DataTypes) {
         price: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        url: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     });
     Items.associate = function(models) {
