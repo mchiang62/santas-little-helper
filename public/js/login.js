@@ -37,7 +37,8 @@ $(document).ready(function () {
         })
         .then(function(){
             console.log("userdata", userData);
-            window.location.href = "/list";
+            window.location.href = "/view";
         })
      
+});
 });

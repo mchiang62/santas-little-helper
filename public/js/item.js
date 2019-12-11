@@ -11,7 +11,8 @@ $(document).ready(function(){
         var userList = {
             item: item.val().trim(),
             price: price.val().trim(),
-            url: url.val()
+            url: url.val(),
+            foreignKey: window.wishlistid
         };
 
         submitList(userList);
