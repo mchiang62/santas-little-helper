@@ -1,11 +1,11 @@
-$(document).ready(function(){
+$(document).ready(function () {
     // Getting references to our form and inputs
     var loginForm = $("#loginForm");
     var emailInput = $("#email-input_a");
     var passwordInput = $("#password-input_a");
 
     // When the form is submitted, we validate there's an email and password entered
-    loginForm.on("submit", function(event) {
+    loginForm.on("submit", function (event) {
         event.preventDefault();
         var userData = {
             email: emailInput.val().trim(),
@@ -21,7 +21,7 @@ $(document).ready(function(){
 
         var dataJSON = JSON.stringify(userData);
 
-    // loginUser does a post to our "api/login" route and if succesful, redirects us to new page;
+      // loginUser does a post to our "api/login" route and if succesful, redirects us to new page;
         $.ajax({
             method:"POST",
             url:"api/login/",
@@ -40,5 +40,4 @@ $(document).ready(function(){
             window.location.href = "/list";
         })
      
-});
 });

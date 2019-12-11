@@ -55,31 +55,54 @@ module.exports = function (app) {
     });
   });
 
- 
+ //Get a specific of a Wishlist
+ app.get("/api/wishlistitems", function (req, res) {
+   db.Items.findAll({where: {
+     foreignKey: req.params.foreignKey
+   }}).then(function(dbWishlist) {
+    res.json(dbItems)
+   });
+ });
 
   //Create a new Wishlist
   app.post("/api/newwishlist", function(req, res) {
     db.Wishlist.create({
-      itemA: req.body.itemA,
-      itemB: req.body.itemB,
-      itemC: req.body.itemC,
-      itemD: req.body.itemD,
-      itemE: req.body.itemE
+      name: req.body.name,
+      budget: req.body.budget
     }).then(function(results) {
       res.end();
     });
   });
+
+  //Create a new item
+  app.post("/api/wishlistitem", function(req, res) {
+    db.Items.create({
+      item: req.body.item,
+      price: req.body.price,
+      url: req.body.url
+    }).then(function(results) {
+      res.end();
+    });
+  });
+
+  //Delete an item
+  app.delete("/api/wishlistitem/:id", function(req, res) {
+    db.Items.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbItems) {
+      res.json(dbItems) 
+  });
+});
 
 
 
   //Update a wishlist
   app.put("/api/wishlists", function (req, res) {
     db.Wishlist.update({
-      itemA: req.body.itemA,
-      itemB: req.body.itemB,
-      itemC: req.body.itemC,
-      itemD: req.body.itemD,
-      itemE: req.body.itemE
+      name: req.body.name,
+      budget: req.body.budget
     }, {
       where: {
         id: req.body.id
@@ -88,6 +111,23 @@ module.exports = function (app) {
       res.json(dbWishlist);
     });
   });
+
+   //Update a wishlist item
+
+   app.put("/api/wishlistitems", function (req, res) {
+    db.Items.update({
+      item: req.body.item,
+      price: req.body.price,
+      url: req.body.url
+    }, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function (dbItems) {
+      res.json(dbItems);
+    });
+  });
+
 
   //Delete a wishlist
 
@@ -101,5 +141,3 @@ app.delete("/api/wishlists/:id", function(req, res) {
   });
 });
 };
-
- 
