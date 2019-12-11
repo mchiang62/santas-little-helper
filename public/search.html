@@ -9,6 +9,7 @@
 
 
     <link rel="stylesheet" href="styles/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Candal&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -58,7 +59,7 @@
         <h1 class="display-4">Santa's Little Helper</h1>
         <br>
         <br>
-        <p class="lead">Search for someone's wish list below</p>
+        <p class="lead">Search for a wish list below</p>
         <!-- <hr class="my-4">
         <p>Search for a wish list below</p> -->
         <!-- <p class="lead">
@@ -82,7 +83,7 @@
 
                     <br>
 
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="submit" class="btn btn-primary" id="search-button">Search</button>
 
                     <a class="btn btn-primary btn" href="list.html" role="button">Go to list page</a>
 
@@ -90,6 +91,9 @@
 
             </div>
         </div>
+
+        <span id="displayFirst"></span>
+        <span id="displayLast"></span>
 
     </div>
 
