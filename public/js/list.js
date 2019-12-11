@@ -17,8 +17,10 @@ $(document).ready(function(){
         submitList(userList);
 
         function submitList(Post) {
-            $.post("/api/newwishlist/", Post, function() {
-              window.location.href = "/item";
+            $.post("/api/newwishlist/", Post, function(data) {
+              window.wishlistid = data.id;
+              console.log("data", data);
+              // window.location.href = "/item";
             });
           }
     });
