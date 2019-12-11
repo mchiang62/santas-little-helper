@@ -21,7 +21,7 @@ $(document).ready(function () {
 
         var dataJSON = JSON.stringify(userData);
 
-    // loginUser does a post to our "api/login" route and if succesful, redirects us to new page;
+      // loginUser does a post to our "api/login" route and if succesful, redirects us to new page;
         $.ajax({
             method:"POST",
             url:"api/login/",
