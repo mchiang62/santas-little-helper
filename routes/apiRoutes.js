@@ -6,8 +6,8 @@ module.exports = function (app) {
   // If the user has valid ligin credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", function (req, res) {
-    res.json(req.user);
-    console.log(req.user)
+    console.log(req.body);
+    res.json(req.body);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -59,7 +59,7 @@ module.exports = function (app) {
  app.get("/api/wishlistitems", function (req, res) {
    db.Items.findAll({where: {
      foreignKey: req.params.foreignKey
-   }}).then(function(dbWishlist) {
+   }}).then(function(dbItems) {
     res.json(dbItems)
    });
  });
@@ -111,6 +111,23 @@ module.exports = function (app) {
       res.json(dbWishlist);
     });
   });
+
+   //Update a wishlist item
+
+   app.put("/api/wishlistitems", function (req, res) {
+    db.Items.update({
+      item: req.body.item,
+      price: req.body.price,
+      url: req.body.url
+    }, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function (dbItems) {
+      res.json(dbItems);
+    });
+  });
+
 
   //Delete a wishlist
 
