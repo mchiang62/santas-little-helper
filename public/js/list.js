@@ -17,7 +17,7 @@ $(document).ready(function(){
 
         function submitList(Post) {
             $.post("/api/newwishlist/", Post, function() {
-              window.location.href = "/search";
+              window.location.href = "/item";
             });
           }
     });
