@@ -59,7 +59,7 @@ module.exports = function (app) {
  app.get("/api/wishlistitems", function (req, res) {
    db.Items.findAll({where: {
      foreignKey: req.params.foreignKey
-   }}).then(function(dbWishlist) {
+   }}).then(function(dbItems) {
     res.json(dbItems)
    });
  });
@@ -69,8 +69,8 @@ module.exports = function (app) {
     db.Wishlist.create({
       name: req.body.name,
       budget: req.body.budget
-    }).then(function(results) {
-      res.end();
+    }).then(function(dbWishlist) {
+      res.json(dbWishlist);
     });
   });
 
@@ -80,8 +80,8 @@ module.exports = function (app) {
       item: req.body.item,
       price: req.body.price,
       url: req.body.url
-    }).then(function(results) {
-      res.end();
+    }).then(function(dbItems) {
+      res.json(dbItems);
     });
   });
 
