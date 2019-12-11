@@ -69,8 +69,8 @@ module.exports = function (app) {
     db.Wishlist.create({
       name: req.body.name,
       budget: req.body.budget
-    }).then(function(results) {
-      res.end();
+    }).then(function(dbWishlist) {
+      res.json(dbWishlist);
     });
   });
 
@@ -80,8 +80,8 @@ module.exports = function (app) {
       item: req.body.item,
       price: req.body.price,
       url: req.body.url
-    }).then(function(results) {
-      res.end();
+    }).then(function(dbItems) {
+      res.json(dbItems);
     });
   });
 

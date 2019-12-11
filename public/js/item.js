@@ -1,7 +1,7 @@
 $(document).ready(function(){
     // Getting references to our form and inputs
-    var name = $("#item");
-    var budget = $("#price");
+    var item = $("#item");
+    var price = $("#price");
     var url = $("#url");
    
 
