@@ -6,8 +6,8 @@ module.exports = function (app) {
   // If the user has valid ligin credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", function (req, res) {
-    res.json(req.user);
-    console.log(req.user)
+    console.log(req.body);
+    res.json(req.body);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to

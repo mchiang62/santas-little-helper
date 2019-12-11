@@ -20,35 +20,24 @@ $(document).ready(function () {
         passwordInput.val("");
 
         var dataJSON = JSON.stringify(userData);
-        console.log(dataJSON, 'dataJson')
 
-
-        // loginUser does a post to our "api/login" route and if succesful, redirects us to the members page submitList(userList);
-
-        function submitList(Post) {
-            $.post("/api/newwishlist/", Post, function () {
-                window.location.href = "/search";
-            });
-        }
+      // loginUser does a post to our "api/login" route and if succesful, redirects us to new page;
         $.ajax({
-            method: "POST",
-            url: "api/login",
+            method:"POST",
+            url:"api/login/",
             data: dataJSON,
-            dataType: "json",
-            contentType: "application/json"
+            dataType:"json",
+            contentType:"application/json",
+            success: function() {
+                console.log("worked!");
+            },
+            error: function(error){
+                console.log("error", error);
+            }
         })
-            // $.post("/api/login", function() {
-            //     email: email,
-            //     password: password
-
-            .then(function () {
-                console.log("!!!!!", userData);
-                window.location.href = "/list";
-            })
-        // if there's an error, log the error
-        // }).catch(function(err){
-        //     console.log(err);
-        // });
-        // }
-    });
+        .then(function(){
+            console.log("userdata", userData);
+            window.location.href = "/list";
+        })
+     
 });
