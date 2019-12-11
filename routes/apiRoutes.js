@@ -5,7 +5,7 @@ module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid ligin credentials, send them to the members page.
   // Otherwise the user will be sent an error
-  app.post("/api/login", function (req, res) {
+  app.post("/api/login", passport.authenticate("local"), function (req, res) {
     console.log(req.body);
     res.json(req.body);
   });
@@ -66,20 +66,23 @@ module.exports = function (app) {
 
   //Create a new Wishlist
   app.post("/api/newwishlist", function(req, res) {
+    console.log(req.user);
     db.Wishlist.create({
       name: req.body.name,
-      budget: req.body.budget
+      budget: req.body.budget,
+      foreignKey: req.user.id
     }).then(function(dbWishlist) {
       res.json(dbWishlist);
     });
   });
 
   //Create a new item
-  app.post("/api/wishlistitem", function(req, res) {
+  app.post("/api/newwishlistitem", function(req, res) {
     db.Items.create({
       item: req.body.item,
       price: req.body.price,
-      url: req.body.url
+      url: req.body.url,
+      foreignKey:req.body.foreignKey
     }).then(function(dbItems) {
       res.json(dbItems);
     });
