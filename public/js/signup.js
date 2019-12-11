@@ -37,7 +37,7 @@ $(document).ready(function() {
             firstName: firstName,
             lastName: lastName
         }).then(function() {
-            window.location.replace("/list");
+            window.location.href = "/list";
             // if there's an error, handle it by throwing up a bootstrap alert
         }).catch(handleLoginErr);
     }
