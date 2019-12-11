@@ -59,7 +59,7 @@ module.exports = function (app) {
  app.get("/api/wishlistitems", function (req, res) {
    db.Items.findAll({where: {
      foreignKey: req.params.foreignKey
-   }}).then(function(dbWishlist) {
+   }}).then(function(dbItems) {
     res.json(dbItems)
    });
  });
