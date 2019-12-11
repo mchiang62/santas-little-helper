@@ -66,6 +66,7 @@ module.exports = function (app) {
 
   //Create a new Wishlist
   app.post("/api/newwishlist", function(req, res) {
+    console.log(req.body.name);
     db.Wishlist.create({
       name: req.body.name,
       budget: req.body.budget
@@ -75,7 +76,7 @@ module.exports = function (app) {
   });
 
   //Create a new item
-  app.post("/api/wishlistitem", function(req, res) {
+  app.post("/api/newwishlistitem", function(req, res) {
     db.Items.create({
       item: req.body.item,
       price: req.body.price,

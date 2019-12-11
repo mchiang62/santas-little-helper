@@ -12,6 +12,7 @@ $(document).ready(function(){
             budget: budget.val().trim(),
 
         };
+        console.log(userList);
 
         submitList(userList);
 
