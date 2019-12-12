@@ -3,7 +3,7 @@ var passport = require("../config/passport.js");
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid ligin credentials, send them to the members page.
+  // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     console.log(req.body);
@@ -36,12 +36,13 @@ module.exports = function (app) {
   app.get("/api/user_data", function(req, res) {
     if(!req.user) {
       // The user is not logged in, send back an empty object
+      console.log(req.user);
       res.json({});
     } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
-        email: req.user.email,
+        firstName: req.user.firstName,
         id: req.user.id
       });
     }
@@ -83,7 +84,7 @@ module.exports = function (app) {
       item: req.body.item,
       price: req.body.price,
       url: req.body.url,
-      wishlistId:req.body.wishlistid
+      wishlistId: req.body.wishlistid
     }).then(function(dbItems) {
       res.json(dbItems);
     });
