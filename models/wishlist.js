@@ -8,17 +8,19 @@ module.exports = function (sequelize, DataTypes) {
         name: {
             type: DataTypes.STRING,
             allowNull: false
-        }, 
+        },
         budget: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
     });
-    Wishlist.associate = function(models) {
+
+    Wishlist.associate = function (models) {
         Wishlist.hasMany(models.Items, {
             onDelete: "cascade"
         });
     };
+
     Wishlist.associate = function (models) {
         Wishlist.belongsTo(models.User, {
             foreignKey: {
@@ -26,8 +28,6 @@ module.exports = function (sequelize, DataTypes) {
             }
         });
     };
-   
-
+    
     return Wishlist;
 };
-

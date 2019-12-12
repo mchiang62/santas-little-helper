@@ -20,13 +20,13 @@ $(document).ready(function() {
             return;
         }
 
-        // if we have an email and password, run the signUpUser function
+        // if we have an email, password, first name, and last name run the signUpUser function
         signUpUser(userData.email, userData.password, userData.firstName, userData.lastName);
         emailInput.val("");
         passwordInput.val("");
         fNameInput.val("");
         lNameInput.val("");
-    });    
+    });
 
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
@@ -38,7 +38,7 @@ $(document).ready(function() {
             lastName: lastName
         })
         .then(function() {
-            window.location.href = "/list";
+            window.location.href = "/view";
             // if there's an error, handle it by throwing up a bootstrap alert
         })
         .catch(handleLoginErr);
