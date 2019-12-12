@@ -22,11 +22,11 @@ $(document).ready(function() {
 
         // if we have an email and password, run the signUpUser function
         signUpUser(userData.email, userData.password, userData.firstName, userData.lastName);
-        emailInput.val();
-        passwordInput.val();
-        fNameInput.val();
-        lNameInput.val();
-    });
+        emailInput.val("");
+        passwordInput.val("");
+        fNameInput.val("");
+        lNameInput.val("");
+    });    
 
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
@@ -36,10 +36,12 @@ $(document).ready(function() {
             password: password,
             firstName: firstName,
             lastName: lastName
-        }).then(function() {
-            window.location.replace("/list");
+        })
+        .then(function() {
+            window.location.href = "/list";
             // if there's an error, handle it by throwing up a bootstrap alert
-        }).catch(handleLoginErr);
+        })
+        .catch(handleLoginErr);
     }
 
     function handleLoginErr(err) {

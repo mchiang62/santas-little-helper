@@ -1,5 +1,5 @@
-//Creating our model for the wishlist
-var Sequelize = require("sequelize");
+// Creating our model for the wishlist
+// var Sequelize = require("sequelize");
 
 module.exports = function (sequelize, DataTypes) {
     //Wishlist will consist of Items

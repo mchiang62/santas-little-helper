@@ -66,7 +66,7 @@ module.exports = function (app) {
 
   //Create a new Wishlist
   app.post("/api/newwishlist", function(req, res) {
-    console.log(req.user);
+    //console.log(req.user);
     db.Wishlist.create({
       name: req.body.name,
       budget: req.body.budget,
@@ -78,11 +78,12 @@ module.exports = function (app) {
 
   //Create a new item
   app.post("/api/newwishlistitem", function(req, res) {
+    //console.log("req.body", req.body)
     db.Items.create({
       item: req.body.item,
       price: req.body.price,
       url: req.body.url,
-      foreignKey:req.body.foreignKey
+      wishlistId:req.body.wishlistid
     }).then(function(dbItems) {
       res.json(dbItems);
     });

@@ -7,21 +7,21 @@ $(document).ready(function(){
 
     // When the form is submitted, we validate there's an email and password entered
     $(".item-button").on("click", function() {
-    
+    // console.log("window", window.wishlistid)
         var userList = {
             item: item.val().trim(),
             price: price.val().trim(),
             url: url.val(),
-            foreignKey: window.wishlistid
+            wishlistid: window.wishlistid
         };
-
+       
         submitList(userList);
 
         function submitList(Post) {
-            $.post("/api/newwishlistitem/", Post)// function() {
-              //window.location.href = "/search";
-           // });
+            $.post("/api/newwishlistitem/", Post)
+            //  window.location.href = "/view";
           }
+        
     });
    
 });
