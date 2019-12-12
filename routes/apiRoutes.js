@@ -36,12 +36,13 @@ module.exports = function (app) {
   app.get("/api/user_data", function(req, res) {
     if(!req.user) {
       // The user is not logged in, send back an empty object
+      console.log(req.user);
       res.json({});
     } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
-        email: req.user.email,
+        firstName: req.user.firstName,
         id: req.user.id
       });
     }
@@ -83,7 +84,7 @@ module.exports = function (app) {
       item: req.body.item,
       price: req.body.price,
       url: req.body.url,
-      wishlistId:req.body.wishlistid
+      wishlistId: req.body.wishlistid
     }).then(function(dbItems) {
       res.json(dbItems);
     });
