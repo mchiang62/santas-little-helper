@@ -60,6 +60,17 @@ module.exports = function (app) {
     });
   });
 
+  // Get wishlist by user
+  app.get("/api/wishlist/:id", function(req, res){
+    db.Wishlist.findAll({
+      where: {
+        UserId: req.params.UserId
+      }
+    }).then(function(dbWishlist){
+      res.json(dbWishlist);
+    });
+  });
+
  //Get a specific of a Wishlist
  app.get("/api/wishlistitems", function (req, res) {
    db.Items.findAll({where: {
