@@ -36,7 +36,7 @@ module.exports = function (app) {
   app.get("/api/user_data", function(req, res) {
     if(!req.user) {
       // The user is not logged in, send back an empty object
-      console.log(req.user);
+      //console.log(req.user);
       res.json({});
     } else {
       // Otherwise send back the user's email and id
@@ -67,11 +67,12 @@ module.exports = function (app) {
 
   //Create a new Wishlist
   app.post("/api/newwishlist", function(req, res) {
-    //console.log(req.user);
+    console.log(req.user);
+    console.log(req.user.id);
     db.Wishlist.create({
       name: req.body.name,
       budget: req.body.budget,
-      foreignKey: req.user.id
+      UserId: req.user.id
     }).then(function(dbWishlist) {
       res.json(dbWishlist);
     });
@@ -84,7 +85,7 @@ module.exports = function (app) {
       item: req.body.item,
       price: req.body.price,
       url: req.body.url,
-      wishlistId: req.body.wishlistid
+      WishlistId: req.body.wishlistid
     }).then(function(dbItems) {
       res.json(dbItems);
     });

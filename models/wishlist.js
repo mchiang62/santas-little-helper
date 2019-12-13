@@ -15,19 +15,18 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    Wishlist.associate = function(models) {
+    Wishlist.associate = function (models) {
         Wishlist.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
+            onUpdate: "cascade",
+            onDelete: "SET NULL",
+            foreignKey: 'UserId',
+            targetKey: 'id'
         });
-    };
-
-    Wishlist.associate = function(models) {
         Wishlist.hasMany(models.Items, {
             onDelete: "cascade"
         });
     };
 
+    
     return Wishlist;
 };
