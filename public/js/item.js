@@ -13,13 +13,16 @@ $(document).ready(function(){
             price: price.val().trim(),
             url: url.val(),
             wishlistid: window.wishlistid
-        };
+    };
        
         submitList(userList);
 
         function submitList(Post) {
             $.post("/api/newwishlistitem/", Post)
             //  window.location.href = "/view";
+            $("#item").val("");
+            $("#price").val("");
+            $("#url").val("");
           }
         
     });

@@ -49,9 +49,13 @@ module.exports = function (app) {
   });
 
 
-  //Get all Wishlists
+  //Get all Wishlists of a User
   app.get("/api/wishlists", function (req, res) {
-    db.Wishlist.findAll({}).then(function (dbWishlist) {
+    db.Wishlist.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(function (dbWishlist) {
       res.json(dbWishlist);
     });
   });
@@ -59,7 +63,7 @@ module.exports = function (app) {
  //Get a specific of a Wishlist
  app.get("/api/wishlistitems", function (req, res) {
    db.Items.findAll({where: {
-     foreignKey: req.params.foreignKey
+     WishlistId: req.wishlist.id
    }}).then(function(dbItems) {
     res.json(dbItems)
    });
@@ -80,12 +84,12 @@ module.exports = function (app) {
 
   //Create a new item
   app.post("/api/newwishlistitem", function(req, res) {
-    //console.log("req.body", req.body)
+    //console.log("req.body", req.body.wishlistId)
     db.Items.create({
       item: req.body.item,
       price: req.body.price,
       url: req.body.url,
-      wishlistId: req.body.wishlistid
+      WishlistId: req.body.wishlistid
     }).then(function(dbItems) {
       res.json(dbItems);
     });

@@ -13,7 +13,7 @@ $(document).ready(function () {
         };
 
         if (!userData.email || !userData.password) {
-            return;
+            alert ("INVALID EMAIL AND/OR PASSWORD. PLEASE TRY AGAIN!");
         }
         // If we have an email and passworde run the loginUser function and clear the form
         emailInput.val("");
@@ -33,6 +33,7 @@ $(document).ready(function () {
             },
             error: function(error){
                 console.log("error", error);
+                alert("INVALID EMAIL AND/OR PASSWORD. PLEASE TRY AGAIN!")
             }
         })
         .then(function(){
