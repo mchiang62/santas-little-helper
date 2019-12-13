@@ -20,8 +20,27 @@ $(document).ready(function () {
 
             $.get("/api/wishlists", Get, function (data) {
 
-                $('#displayFirst').text(data);
-                $('#displayLast').text(data);
+                if (data.length !== 0) {
+
+                    for (var i = 0; i < data.length; i++) {
+                        var row = $("<div>")
+                        row.addClass("list")
+
+                        row.append("<p>" + data[i].firstName + "</p>");
+                        row.append("<p>" + data[i].lastName + "</p>");
+
+                        console.log (data[i], "data")
+
+
+                        $('#displayFirst').prepend(row);
+                        $('#displayLast').prepend(row);
+
+                    }
+
+                    // $('#displayFirst').text(data);
+                    // $('#displayLast').text(data);
+
+                }
 
             });
 
