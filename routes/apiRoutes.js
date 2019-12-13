@@ -61,6 +61,25 @@ module.exports = function (app) {
     });
   });
 
+  // Get wishlist by user
+  app.get("/api/users", function(req, res){
+    db.User.findAll({
+      where: {
+        firstName: req.user.firstName,
+        lastName: req.user.lastName
+      },
+      include: [
+        {
+          model: [db.Wishlist],
+          include: [{
+            model: [db.Items]
+          }],
+      ]
+    }).then(function(dbWishlist) {
+      res.json(dbWishlist);
+    });
+  });
+
  //Get a specific of a Wishlist
  app.get("/api/wishlistitems", function (req, res) {
    db.Items.findAll({where: {
@@ -106,8 +125,6 @@ module.exports = function (app) {
       res.json(dbItems) 
   });
 });
-
-
 
   //Update a wishlist
   app.put("/api/wishlists", function (req, res) {
