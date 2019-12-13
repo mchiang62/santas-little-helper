@@ -7,13 +7,11 @@ $.get("/api/wishlists", function(data) {
         var row = $("<div>");
      
         row.append("<p>" + data[i].name + "</p>");
-
-          for (var x = 0; x < data.length; x++) {
-             row.append("<p>"+ data[i].Items[0].item + "<p>")
-          }
+        for (var j = 0; j < data[i].Items.length; j++) {
        
+          row.append("<p>"+ data[i].Items[j].item + "<p>");
    
-       
+        }
 
         // $.get("api/wishlistitems", function(data){
         //   console.log("response", response)
