@@ -80,7 +80,7 @@ module.exports = function (app) {
 
   //Create a new item
   app.post("/api/newwishlistitem", function(req, res) {
-    //console.log("req.body", req.body)
+    //console.log("req.body", req.body.wishlistId)
     db.Items.create({
       item: req.body.item,
       price: req.body.price,
