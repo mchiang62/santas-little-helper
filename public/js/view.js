@@ -8,8 +8,8 @@ $.get("/api/wishlists", function(data) {
      
         row.append("<h2>" + data[i].name + "</h2>");
         for (var j = 0; j < data[i].Items.length; j++) {
-       
-          row.append("<p>"+ data[i].Items[j].item + "<p>");
+          
+          row.append("<p>"+ data[i].Items[j].item + "      " + data[i].Items[j].price + "<p>");
    
         }
 
