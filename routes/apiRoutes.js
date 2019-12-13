@@ -54,7 +54,8 @@ module.exports = function (app) {
     db.Wishlist.findAll({
       where: {
         UserId: req.user.id
-      }
+      },
+      include: [db.Items]
     }).then(function (dbWishlist) {
       res.json(dbWishlist);
     });
