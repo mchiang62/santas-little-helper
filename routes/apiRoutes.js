@@ -62,11 +62,19 @@ module.exports = function (app) {
   });
 
   // Get wishlist by user
-  app.get("/api/wishlist/:id", function(req, res){
-    db.Wishlist.findAll({
+  app.get("/api/users", function(req, res){
+    db.User.findAll({
       where: {
-        UserId: req.params.UserId
-      }
+        firstName: req.user.firstName,
+        lastName: req.user.lastName
+      },
+      include: [
+        {
+          model: [db.Wishlist],
+          include: [{
+            model: [db.Items]
+          }],
+      ]
     }).then(function(dbWishlist) {
       res.json(dbWishlist);
     });
