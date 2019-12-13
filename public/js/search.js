@@ -27,15 +27,15 @@ $(document).ready(function () {
 
                         var row = $("<div>");
 
-                        row.append("<p>" + data[i].name + "</p>");
+                        row.append("<h2>" + data[i].name + "</h2>");
                         for (var j = 0; j < data[i].Items.length; j++) {
 
-                            row.append("<p>" + data[i].Items[j].item + "<p>");
+                            row.append("<p>" + data[i].Items[j].item + "      " + data[i].Items[j].price + "<p>");
 
                         }
 
-                        $("#displayFirst").prepend(row);
-                        $("#displayLast").prepend(row);
+                        $("#displaySearch").prepend(row);
+                        
 
                     }
 
