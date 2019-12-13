@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true
         }
     });
-    
+
     Items.associate = function(models) {
         Items.belongsTo(models.Wishlist, {
             foreignKey: {

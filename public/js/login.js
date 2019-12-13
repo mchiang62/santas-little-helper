@@ -36,7 +36,7 @@ $(document).ready(function () {
             }
         })
         .then(function(){
-            console.log("userdata", userData);
+            // console.log("userdata", userData);
             window.location.href = "/view";
         })
      
