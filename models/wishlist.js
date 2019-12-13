@@ -16,18 +16,17 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Wishlist.associate = function (models) {
+        Wishlist.belongsTo(models.User, {
+            onUpdate: "cascade",
+            onDelete: "SET NULL",
+            foreignKey: 'UserId',
+            targetKey: 'id'
+        });
         Wishlist.hasMany(models.Items, {
             onDelete: "cascade"
         });
     };
 
-    Wishlist.associate = function (models) {
-        Wishlist.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
     
     return Wishlist;
 };
