@@ -80,12 +80,12 @@ module.exports = function (app) {
 
   //Create a new item
   app.post("/api/newwishlistitem", function(req, res) {
-    //console.log("req.body", req.body)
+    //console.log("req.body", req.body.wishlistId)
     db.Items.create({
       item: req.body.item,
       price: req.body.price,
       url: req.body.url,
-      wishlistId: req.body.wishlistid
+      WishlistId: req.body.wishlistid
     }).then(function(dbItems) {
       res.json(dbItems);
     });
