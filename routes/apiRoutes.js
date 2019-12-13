@@ -67,7 +67,7 @@ module.exports = function (app) {
       where: {
         UserId: req.params.UserId
       }
-    }).then(function(dbWishlist){
+    }).then(function(dbWishlist) {
       res.json(dbWishlist);
     });
   });
