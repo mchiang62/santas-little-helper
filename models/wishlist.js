@@ -8,26 +8,25 @@ module.exports = function (sequelize, DataTypes) {
         name: {
             type: DataTypes.STRING,
             allowNull: false
-        }, 
+        },
         budget: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
     });
-    Wishlist.associate = function(models) {
+
+    Wishlist.associate = function (models) {
+        Wishlist.belongsTo(models.User, {
+            onUpdate: "cascade",
+            onDelete: "SET NULL",
+            foreignKey: 'UserId',
+            targetKey: 'id'
+        });
         Wishlist.hasMany(models.Items, {
             onDelete: "cascade"
         });
     };
-    Wishlist.associate = function (models) {
-        Wishlist.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
-   
 
+    
     return Wishlist;
 };
-
