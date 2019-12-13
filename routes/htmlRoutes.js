@@ -1,9 +1,16 @@
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
 
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 module.exports = function(app) {
 
   app.get("/", function(req, res) {
+    // If the user already has an account send them to the view page
+    if (req.user) {
+      res.redirect("/view")
+    }
     res.sendFile(path.join(__dirname, "../public/home.html"));
   });
 
@@ -19,7 +26,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/search.html"));
   });
   
-  app.get("/view", function(req, res) {
+  app.get("/view", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/view.html"));
   });
   
