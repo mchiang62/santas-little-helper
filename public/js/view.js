@@ -7,7 +7,11 @@ $.get("/api/wishlists", function(data) {
         var row = $("<div>");
      
         row.append("<p>" + data[i].name + "</p>");
-        row.append("<p>"+ data[2].Items[0].item + "<p>")
+
+          for (var x = 0; x < data.length; x++) {
+             row.append("<p>"+ data[i].Items[0].item + "<p>")
+          }
+       
    
        
 
