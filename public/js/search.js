@@ -16,16 +16,33 @@ $(document).ready(function () {
 
         searchWishlist(searchName);
 
+
         function searchWishlist(Get) {
 
             $.get("/api/wishlists", Get, function (data) {
 
-                $('#displayFirst').text(data);
-                $('#displayLast').text(data);
+                if (data.length !== 0) {
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        var row = $("<div>");
+
+                        row.append("<h2>" + data[i].name + "</h2>");
+                        for (var j = 0; j < data[i].Items.length; j++) {
+
+                            row.append("<p>" + data[i].Items[j].item + "      " + data[i].Items[j].price + "<p>");
+
+                        }
+
+                        $("#displaySearch").prepend(row);
+                        
+
+                    }
+
+                }
+
 
             });
-
-
 
 
         }
@@ -33,7 +50,6 @@ $(document).ready(function () {
         //     $('#displayFirst').text($("#search-first").val());
         //     $('#displayLast').text($("#search-last").val());
 
-        // //   still need to grab data from the wish list
 
     });
 
@@ -42,3 +58,47 @@ $(document).ready(function () {
 
 
 });
+
+
+
+
+// var rowsToAdd = [];
+
+// for (var i = 0; i < data.length; i++) {
+//     rowsToAdd.push(createListRow(data[i]));
+
+// }
+
+
+
+
+// var row = $("<div>")
+// row.addClass("list")
+
+// row.append("<p>" + data[i].firstName + "</p>");
+// row.append("<p>" + data[i].lastName + "</p>");
+
+
+
+// $('#displayFirst').prepend(row);
+// $('#displayLast').prepend(row);
+
+
+
+// $('#displayFirst').text(data);
+// $('#displayLast').text(data);
+
+
+// function createListRow(listData) {
+//     var newTr = $("<tr>");
+//     newTr.data("list", listData);
+//     newTr.append("<td>" + listData.name + "</td>");
+//     if (listData.Posts) {
+//         newTr.append("<td> " + listData.Posts.length + "</td>");
+//     } else {
+//         newTr.append("<td>0</td>");
+//     }
+//     // newTr.append("<td><a href='/view?author_id=" + listData.id + "'>Go to Posts</a></td>");
+
+//     // return newTr;
+// }
