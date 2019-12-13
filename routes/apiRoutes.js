@@ -118,8 +118,6 @@ module.exports = function (app) {
   });
 });
 
-
-
   //Update a wishlist
   app.put("/api/wishlists", function (req, res) {
     db.Wishlist.update({
