@@ -74,7 +74,7 @@ module.exports = function (app) {
           include: [{
             model: [db.Items]
           }],
-      ]
+        }]
     }).then(function(dbWishlist) {
       res.json(dbWishlist);
     });

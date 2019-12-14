@@ -12,7 +12,7 @@ $(document).ready(function () {
             lastName: lastName.val().trim(),
 
         };
-        console.log(searchName + "search");
+        console.log(searchName + "search"); //searchName works
 
         searchWishlist(searchName);
 
