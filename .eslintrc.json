@@ -2,18 +2,20 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "node": true
+        "node": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2017
     },
     "extends": "prettier",
-    "plugins": [
-        "prettier"
-      ],
+    "plugins": ["prettier"],
     "rules": {
-        "no-duplicate-case":"error",
-        "no-empty":"error",
-        "no-extra-semi":"error",
+        "no-duplicate-case": "error",
+        "no-empty": "error",
+        "no-extra-semi": "error",
         "no-func-assign": "error",
-        "no-irregular-whitespace":"error",
+        "no-irregular-whitespace": "error",
         "no-unreachable": "error",
         "curly": "error",
         "dot-notation": "error",
@@ -22,18 +24,16 @@
         "no-multi-spaces": "error",
         "no-unused-vars": "error",
         "camelcase": "error",
-        "indent": [
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "prettier/prettier": "error",
+        "prefer-const": [
             "error",
-            4
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "prettier/prettier": "error"
+            {
+                "destructuring": "any",
+                "ignoreReadBeforeAssign": false
+            }
+        ]
     }
 }
