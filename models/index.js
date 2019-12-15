@@ -11,15 +11,7 @@ var db = {};
 require('dotenv').config(); // this is important!
 
 if (config.use_env_variable) {
-    var sequelize = new Sequelize(
-        process.env.DB_DATABASE,
-        process.env.DB_USERNAME,
-        process.env.DB_PASSWORD,
-        process.env.DB_HOST,
-        {
-            dialect: 'mysql',
-        },
-    );
+    var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
     var sequelize = new Sequelize(
         config.database,
