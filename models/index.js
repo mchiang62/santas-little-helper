@@ -12,7 +12,7 @@ var db = {};
 
 
 if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, process.env.DB_HOST, config, {dialect: "mysql"});
+  var sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, process.env.DB_HOST, config, {dialect:"mysql"});
 } else {
   var sequelize = new Sequelize(
     config.database,
