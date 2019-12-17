@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
 module.exports = {
     development: {
-        username: 'root',
-        password: '',
-        database: 'santa_DB',
-        host: 'localhost',
+        username: process.env.DB_USERNAME,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_DATABASE,
+        host: process.env.DB_HOST,
         port: 3306,
         dialect: 'mysql',
     },

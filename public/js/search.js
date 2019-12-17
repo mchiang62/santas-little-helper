@@ -9,48 +9,45 @@ $(document).ready(function () {
         searchWishlist();
         // console.log(searchName + "search");
     });
+
     function searchWishlist() {
         $.get("/api/wishlists", function (data) {
+            console.log(data)
             if (data.length !== 0) {
                 for (var i = 0; i < data.length; i++) {
-                    console.log(data.length);
-                    for (var h = 0; h < data[i].Wishlist.length; h++) {
-                        var wishlistName = data[i].Wishlist.name;
-                        console.log(wishlistName);
-                        var addWishlist = `<h3>${wishlistName}</h3>`;
-                        // var row = $("<div>");
-                        row.append(addWishlist);
-                        for (var j = 0; j < data[i].Items.length; j++) {
-                            var itemName = data[i].Items[j].item;
-                            var itemPrice = data[i].Items[j].price;
-                            console.log(itemName);
-                            console.log(itemPrice);
-                            var addItems = `<p>${itemName} price: $${itemPrice}<p>`;
-                            addWishlist.append(addItems);
-                            // row.append("<p>" + data[i].Items[j].item + "      " + data[i].Items[j].price + "<p>");
-                        }
+
+                    var wishlistName = data[i].name;
+                    console.log(wishlistName);
+                    var addWishlist = `<h3>${wishlistName}</h3>`;
+                    var row = $("<div>");
+                    row.append(addWishlist);
+
+                    for (var j = 0; j < data[i].Items.length; j++) {
+                        var itemName = data[i].Items[j].item;
+                        var itemPrice = data[i].Items[j].price;
+                        console.log(itemName);
+                        console.log(itemPrice);
+                        var addItems = `<p>${itemName} price: $${itemPrice}<p>`;
+                        row.append(addItems);
+                        // row.append("<p>" + data[i].Items[j].item + "      " + data[i].Items[j].price + "<p>");
                     }
-                    $("#displaySearch").prepend(addWishlist);
+
+                    $("#displaySearch").prepend(row);
                 }
             } else {
                 renderEmpty();
             }
         });
     }
+
     function renderEmpty() {
         var alertDiv = $("<div>");
         alertDiv.addClass("alert alert-danger");
         alertDiv.text("The user you entered doesn't exist or hasn't created a wishlist. Please try again");
-        authorContainer.append(alertDiv);
+        $("#displaySearch").append(alertDiv);
     }
- 
+
 });
-
-
-
-
-
-
 
 
 
@@ -93,7 +90,7 @@ $(document).ready(function () {
 //                         }
 
 //                         $("#displaySearch").prepend(row);
-                        
+
 
 //                     }
 

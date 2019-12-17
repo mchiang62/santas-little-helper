@@ -50,6 +50,7 @@ module.exports = function(app) {
 
     //Get all Wishlists of a User
     app.get('/api/wishlists', function(req, res) {
+        console.log(req)
         db.Wishlist.findAll({
             where: {
                 UserId: req.user.id,
